@@ -1,2 +1,2 @@
 #!/bin/bash
-touch 4-empty
+touch hello
