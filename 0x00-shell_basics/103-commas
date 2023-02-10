@@ -1,4 +1,3 @@
 #!bin/bash
-ls -a --format=single-column | sort -f -t/ -k1,1 | awk -F/ 'NF{$NF="/"$NF};1' | paste -sd, - | sed 's/,$/\n/'
-
+ls -xamp
 
