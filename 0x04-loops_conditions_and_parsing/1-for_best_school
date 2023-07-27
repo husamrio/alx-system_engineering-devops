@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script will display "Best School" 10 times
+# If not using style dummy_variable
+
+DISP_MSG="Best School"
+
+for i in {1..10}; do
+	[[ $((i)) ]] && echo -e "$DISP_MSG"
+done

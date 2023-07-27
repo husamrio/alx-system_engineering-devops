@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script processes an Apache access log file and counts the occurrences of each IP address and HTTP status code combination
+
+FILE="apache-access.log"
+
+# Use awk, sort, and uniq to extract and count the occurrences of each IP address and HTTP status code combination
+awk '{print $1, $9}' "$FILE" | sort | uniq -c | sort -nr

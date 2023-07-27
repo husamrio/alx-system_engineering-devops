@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# This script reads the /etc/passwd file and extracts information about users
+
+FILE="/etc/passwd"
+
+# Define a function to process each line of the file
+process_line () {
+	line="$1"
+	# Extract information from the line using the cut command
+	USERNAME=$( echo -e "${line}" | cut -d ":" -f1 )
+	GROUP_ID=$( echo -e "${line}" | cut -d ":" -f4 )
+	HOME_DIRECTORY=$( echo -e "${line}" | cut -d ":" -f6 )
+	COMMAND_SHELL=$( echo -e "${line}" | cut -d ":" -f7 )
+	USER_ID=$( echo -e "${line}" | cut -d ":" -f3 )
+	PASSWORD=$( echo -e "${line}" | cut -d ":" -f2 )
+	INFO=$( echo -e "${line}" | cut -d ":" -f5 )
+	# Print the extracted information in a formatted string
+	echo -e "User ${USERNAME} has UID ${USER_ID} and is part of group ${GROUP_ID}. Their home directory is ${HOME_DIRECTORY} and their default shell is ${COMMAND_SHELL}. Their password is stored as ${PASSWORD} and additional information about them can be found here: ${INFO}"
+}
+
+# Read each line of the file and process it using the process_line function
+while read -r line; do
+	process_line "$line"
+done < $FILE

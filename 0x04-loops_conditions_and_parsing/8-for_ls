@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Loop through all files in the current directory
+for file in *; do
+    # Extract the part after the first hyphen in the file name
+    # using the 'cut' command and print it to the console
+    echo -e "Extracted part: $(echo "$file" | cut -d "-" -f2)"
+done

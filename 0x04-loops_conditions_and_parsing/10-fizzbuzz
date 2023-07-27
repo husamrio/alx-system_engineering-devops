@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# This script prints the numbers from 1 to 100
+# For multiples of 3, it prints "Fizz" instead of the number
+# For multiples of 5, it prints "Buzz" instead of the number
+# For numbers that are multiples of both 3 and 5, it prints "FizzBuzz"
+
+for i in {1..100}; do
+	if [ $((i%15)) -eq 0 ]; then
+	       echo -e "FizzBuzz"
+	       continue
+	fi
+
+	if [ $((i%5)) -eq 0 ]; then
+		echo -e "Buzz"
+		continue
+	fi
+
+	if [ $((i%3)) -eq 0 ]; then
+		echo -e "Fizz"
+		continue
+	fi
+
+	echo -e "${i}"
+done

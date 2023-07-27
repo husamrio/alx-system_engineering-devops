@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script reads the /etc/passwd file and extracts information about users
+
+FILE="/etc/passwd"
+
+while read -r line; do
+	# Extract the username, UID, and home directory from each line
+	echo -e "${line}" | cut -d ":" -f1,3,6
+done < $FILE
