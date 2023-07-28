@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# I am unkillable Kill signal is
+# caught and ignored; printing message instead
+
+MSG () {
+	echo -e "I am invincible!!!" 
+}
+
+trap "MSG" SIGTERM
+
+while true; do
+	echo -e "To infinity and beyond"
+	sleep 2
+done

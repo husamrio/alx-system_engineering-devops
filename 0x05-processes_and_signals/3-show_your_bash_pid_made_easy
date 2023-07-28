@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# display bash PID made easy
+# with a "sleep 2" in between each iteration.
+
+pgrep -l bash

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Prints to infinity and beyond indefinitely
+# Script creates infinite loop that displays text with sleep 2
+
+while true; do
+	echo -e "To infinity and beyond"
+	sleep 2
+done

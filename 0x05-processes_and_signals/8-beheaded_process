@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Process is beheaded
+# Kill forcibly another script running in another terminal
+
+pkill -KILL -f "7-highlander"
