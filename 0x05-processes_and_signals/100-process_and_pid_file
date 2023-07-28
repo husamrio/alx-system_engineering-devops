@@ -1,32 +1,32 @@
 #!/usr/bin/env bash
-# Embracing Immortality
+# I am unkillable
+# Deletes the file /var/run/myscript.pid and terminates
+# itself when receiving a SIGQUIT or SIGTERM signal.
+# Displays To infinity and beyond indefinitely
+#Creates the file /var/run/myscript.pid containing its PID
 
-# Setting up the file to store the immortal script's process ID
-IMMORTAL_PID_FILE="immortal_script"
-IMMORTAL_PID_DIR="/var/run"
+PID_FILE="myscript"
+PID_DIR="/var/run"
 
-# A message of hope, longing for affection
-LONGING_MESSAGE () {
-    echo -e "Why can't you cherish me?"
+MSG_INT () {
+	echo -e "Y U no love me?!"
 }
 
-# A final goodbye message before eternal existence
-ETERNAL_MESSAGE () {
-    rm -rf "${IMMORTAL_PID_DIR}/${IMMORTAL_PID_FILE}.pid"
-    echo -e "I defy the end, for I am immortal!"
-    exit 0
+MSG_QUIT () {
+	rm -rf "${PID_DIR}/${PID_FILE}.pid"
+	echo -e "I hate the kill command"
+	exit 0
 }
 
-# Trapping signals to keep the script immortal
-trap "LONGING_MESSAGE" SIGINT
-trap "ETERNAL_MESSAGE" SIGTERM
-trap "ETERNAL_MESSAGE" SIGQUIT
+trap "MSG_INT" SIGINT
+trap "MSG_QUIT" SIGTERM
+trap "MSG_QUIT" SIGQUIT
 
 
-# Creating the file to contain the everlasting script's process ID
-echo $$ >> "${IMMORTAL_PID_DIR}/${IMMORTAL_PID_FILE}.pid"
+# Create the file
+echo $$ >> "${PID_DIR}/${PID_FILE}.pid"
 
 while true; do
-    echo -e "I shall transcend beyond the boundaries of time!"
-    sleep 2
+	echo -e "To infinity and beyond"
+	sleep 2
 done
