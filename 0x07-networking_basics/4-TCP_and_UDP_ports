@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script displays listening sockects -l PID -p
+
+sudo netstat -pl
