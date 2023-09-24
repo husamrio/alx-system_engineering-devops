@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# The created key must be protected by the passphrase betty
+# Create an ssh key pair
+# Number of bits in the created key to be created 4096
+
+KEY_NAME="school"
+KEY_PASS="betty"
+KEY_BITS="4096"
+
+
+ssh-keygen -b $KEY_BITS -N $KEY_PASS -f $KEY_NAME
