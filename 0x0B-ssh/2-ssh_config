@@ -2,6 +2,6 @@
 # SSH client configuration to refuse to authenticate using a password
 # SSH configuration file for the local client
 
-Host 54.87.172.232
+Host 54.173.80.121
      PasswordAuthentication no
      IdentityFile ~/.ssh/school
