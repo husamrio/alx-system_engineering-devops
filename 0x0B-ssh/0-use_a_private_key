@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Bash Script that uses ssh to connect to server
 # logs in with in ~/.ssh/school for user ubuntu
-ssh -i ~/.ssh/school ubuntu@54.87.172.232
+ssh -i ~/.ssh/school ubuntu@54.173.80.121
