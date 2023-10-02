@@ -9,14 +9,20 @@ sudo apt-get -y install nginx
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 # configure nginx server
-default_sites="/etc/nginx/sites-available/default"
-location=$(grep -Fn location $default_sites | head -1 | cut -d":" -f1)
-location_data="\\\tlocation /redirect_me {\n\t\treturn 301 https://youtu.be/mlUOUncSaTk;\n\t}\n\n"
-error_page="\\\terror_page 404 /404.html;\n"
-
-echo "Ceci n'est pas une page" | sudo tee "/var/www/html/404.html"
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/husamrio permanent;"
 
 ## Update default site to redirect and start nginx server
-sudo sed -i "${location}i ${location_data}" ${default_sites}
-sudo sed -i "${location}i ${error_page}" ${default_sites}
-sudo service nginx start
+
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# creating a 404 error page
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+string_for_replace="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\troot \/var/www/html;\n\t\tinternal;\n\t}"
+
+sudo sed -i "s/listen 80 default_server;/$string_for_replace/" /etc/nginx/sites-enabled/default
+
+# restart nginx
+
+sudo service nginx restart
